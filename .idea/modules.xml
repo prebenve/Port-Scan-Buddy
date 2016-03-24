@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PortScanBuddy.iml" filepath="$PROJECT_DIR$/PortScanBuddy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Port-Scan-Buddy.iml" filepath="$PROJECT_DIR$/Port-Scan-Buddy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
