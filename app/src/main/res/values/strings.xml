@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Port Scan Buddy</string>
+    <string name="btnScanNetwork">Scan Network</string>
+    <string name="btnScanHost">Scan Host</string>
 </resources>

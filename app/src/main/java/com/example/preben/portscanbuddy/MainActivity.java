@@ -1,43 +1,57 @@
 package com.example.preben.portscanbuddy;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity{
+public class MainActivity extends AppCompatActivity {
 
-    private EditText txtHost;
-    private Button btnScan;
-    private TextView txtInfoPorts;
+    private Button btnScanHost;
+    private Button btnScanNetwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtHost = (EditText) findViewById(R.id.txtHost);
-        btnScan = (Button) findViewById(R.id.btnScan);
-        txtInfoPorts = (TextView) findViewById(R.id.txtPortInfo);
+        btnScanHost = (Button) findViewById(R.id.btnScanHost);
+        btnScanNetwork = (Button) findViewById(R.id.btnScanNetwork);
 
-        btnScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "btnScan touched", Toast.LENGTH_LONG).show();
-                //scanHost(txtHost.toString());
-                scanHost("192.168.0.200");
+        btnScanHost.setOnClickListener(listener);
+        btnScanNetwork.setOnClickListener(listener);
+    }
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v)
+        {
+            switch (v.getId())
+            {
+                case R.id.btnScanHost:
+
+                    Intent intentScanHost = new Intent(getApplicationContext(), ScanHostIntent.class);
+                    startActivity(intentScanHost);
+                    break;
+
+                case R.id.btnScanNetwork:
+
+                    Intent intentScanNetwork = new Intent(getApplicationContext(), ScanNetworkIntent.class);
+                    startActivity(intentScanNetwork);
+                    break;
+
+                default:
+                    break;
             }
-        });
-    }
-
-    private void scanHost(String ip)
-    {
-        Host host = new Host(ip, txtInfoPorts);
-        ScanSingleHost scanHost = new ScanSingleHost(host);
-    }
+        }
+    };
 
 }
