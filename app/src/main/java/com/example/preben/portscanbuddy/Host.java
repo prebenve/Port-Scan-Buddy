@@ -2,6 +2,7 @@ package com.example.preben.portscanbuddy;
 
 import android.widget.TextView;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 
 /**
@@ -12,13 +13,20 @@ public class Host {
     private ArrayList<Integer> ports;
     private String ip;
     private String hostName;
-    private TextView txtPortsInfo;
+    private Boolean isAlive;
+    private TextView txtOpenPorts;
 
-    public Host(String ip, TextView txtPortsInfo)
+    public Host(String ip, TextView txtOpenPorts)
     {
         this.ip = ip;
-        this.txtPortsInfo = txtPortsInfo;
+        this.txtOpenPorts = txtOpenPorts;
 
+        ports = new ArrayList<>();
+    }
+
+    public Host(String ip)
+    {
+        this.ip = ip;
         ports = new ArrayList<>();
     }
 
@@ -28,9 +36,22 @@ public class Host {
         updateUI();
     }
 
+    public void setIsAlive(Boolean isAlive)
+    {
+        this.isAlive = isAlive;
+    }
+
     private void updateUI()
     {
-        txtPortsInfo.setText(ports.toString());
+        if (ports.size() <= 1) {
+            txtOpenPorts.setText("Open port: ");
+            txtOpenPorts.append(ports.toString());
+        }
+        else
+        {
+            txtOpenPorts.setText("Open ports: ");
+            txtOpenPorts.append(ports.toString());
+        }
     }
 
     public String getIp()

@@ -19,13 +19,15 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Preben on 19/03/2016.
  */
-public class ScanSingleHost {
+public class ScanPorts {
 
     private Host host;
+    private int timeout;
 
-    public ScanSingleHost(Host host)
+    public ScanPorts(Host host, int timeout)
     {
         this.host = host;
+        this.timeout = timeout;
     }
 
     public void scanMostCommonPorts()
@@ -69,7 +71,7 @@ public class ScanSingleHost {
 
             try {
                 Socket socket = new Socket();
-                socket.connect(new InetSocketAddress(host.getIp(), portNumber), 10); //200ms socket timeout
+                socket.connect(new InetSocketAddress(host.getIp(), portNumber), timeout);
                 return socket.isConnected();
 
             } catch (IOException e) {

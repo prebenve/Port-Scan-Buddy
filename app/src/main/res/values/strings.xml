@@ -2,4 +2,17 @@
     <string name="app_name">Port Scan Buddy</string>
     <string name="btnScanNetwork">Scan Network</string>
     <string name="btnScanHost">Scan Host</string>
+    <string name="txtHostName">IP address / host name:</string>
+    <string name="txtTypeOfScan">Type of scan:</string>
+    <string name="txtSocketTimeout">Timeout socket (less is faster, but more inaccurate):</string>
+    <string name="txtIpAddress">IP address:</string>
+    <string name="txtSubnetmask">Subnet mask:</string>
+    <string name="txtMaxHostsNetwork">Maximum hosts in this network:</string>
+
+    <string-array name="portsArray">
+        <item>Most Common Ports (1000 ports)</item>
+        <item>All ports (65535 ports)</item>
+    </string-array>
+
+
 </resources>
